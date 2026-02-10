@@ -65,7 +65,7 @@ if grep -q "# Claude Agent Teams" "$SHELL_CONFIG" 2>/dev/null; then
 fi
 
 # Download and append
-curl -fsSL https://raw.githubusercontent.com/YOUR-USERNAME/claude-agent-launcher/main/claude-team.sh >> "$SHELL_CONFIG"
+curl -fsSL https://raw.githubusercontent.com/rhysheavensmith/claude-agent-launcher/main/claude-team.sh >> "$SHELL_CONFIG"
 
 echo ""
 echo -e "${GREEN}✓ Installation complete!${NC}"
@@ -78,4 +78,4 @@ echo -e "  ${GREEN}ct${NC}              # Launch agent team"
 echo -e "  ${GREEN}ct-list${NC}         # List sessions"
 echo -e "  ${GREEN}ct-kill [name]${NC}  # Kill session"
 echo ""
-echo -e "⭐ Star the repo: ${GREEN}https://github.com/YOUR-USERNAME/claude-agent-launcher${NC}"
+echo -e "⭐ Star the repo: ${GREEN}https://github.com/rhysheavensmith/claude-agent-launcher${NC}"

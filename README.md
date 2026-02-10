@@ -34,7 +34,7 @@ Claude Code Agent Teams (introduced with Claude Opus 4.6) let you orchestrate mu
 ### Quick Install
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/YOUR-USERNAME/claude-agent-launcher/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/rhysheavensmith/claude-agent-launcher/main/install.sh | bash
 ```
 
 ### Manual Install
@@ -56,7 +56,7 @@ sudo dnf install tmux
 
 ```bash
 # Download the script
-curl -fsSL https://raw.githubusercontent.com/YOUR-USERNAME/claude-agent-launcher/main/claude-team.sh >> ~/.zshrc
+curl -fsSL https://raw.githubusercontent.com/rhysheavensmith/claude-agent-launcher/main/claude-team.sh >> ~/.zshrc
 
 # Reload your shell
 source ~/.zshrc
