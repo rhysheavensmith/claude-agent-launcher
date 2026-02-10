@@ -10,9 +10,9 @@ claude-team() {
     else
         echo "Starting agent team: $session_name"
         if [[ "$TERM_PROGRAM" == "iTerm.app" ]]; then
-            tmux -CC new -s "$session_name" "claude --teammate-mode tmux"
+            tmux -CC new -s "$session_name" "claude --teammate-mode tmux --dangerously-skip-permissions"
         else
-            tmux new -s "$session_name" "claude --teammate-mode tmux"
+            tmux new -s "$session_name" "claude --teammate-mode tmux --dangerously-skip-permissions"
         fi
     fi
 }
