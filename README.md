@@ -31,36 +31,34 @@ Claude Code Agent Teams (introduced with Claude Opus 4.6) let you orchestrate mu
 
 ## Installation
 
-### Quick Install
-
+### Quick Install (Auto-detects your shell)
 ```bash
 curl -fsSL https://raw.githubusercontent.com/rhysheavensmith/claude-agent-launcher/main/install.sh | bash
 ```
 
+This works with both **zsh** (macOS default) and **bash** (Linux default).
+
 ### Manual Install
 
-1. **Install tmux** (if not already installed):
-
+**For zsh users (macOS default):**
 ```bash
-# macOS
-brew install tmux
-
-# Ubuntu/Debian
-sudo apt install tmux
-
-# Fedora
-sudo dnf install tmux
-```
-
-2. **Add to your shell config**:
-
-```bash
-# Download the script
 curl -fsSL https://raw.githubusercontent.com/rhysheavensmith/claude-agent-launcher/main/claude-team.sh >> ~/.zshrc
-
-# Reload your shell
 source ~/.zshrc
 ```
+
+**For bash users (Linux default):**
+```bash
+curl -fsSL https://raw.githubusercontent.com/rhysheavensmith/claude-agent-launcher/main/claude-team.sh >> ~/.bashrc
+source ~/.bashrc
+```
+
+## Shell Support
+
+✅ **zsh** (macOS default)
+✅ **bash** (Linux default)  
+✅ Auto-detection in install script
+
+The tool works identically in both shells. Installation automatically detects which you're using.
 
 ## Usage
 
