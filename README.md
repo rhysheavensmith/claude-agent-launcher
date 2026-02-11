@@ -8,7 +8,7 @@ Launch multiple Claude AI agents working in parallel with a single command. Perf
 
 - 🚀 **One command to launch**: Just type `ct` and go
 - 🔄 **Smart session management**: Attach to existing or create new sessions automatically
-- 🖥️ **iTerm2 optimized**: Auto-detects iTerm2 and uses control mode for native tabs
+- 🖥️ **iTerm2 compatible**: Works in regular tmux mode by default, with optional control mode (`tmux -CC`) for native tabs
 - 📦 **No configuration needed**: Works out of the box
 - 🎯 **Named sessions**: Run multiple projects simultaneously
 - 🧹 **Easy cleanup**: Simple commands to manage sessions
@@ -274,17 +274,22 @@ tmux split panes don't work in integrated terminals. Use:
 - External terminal (iTerm2/Terminal.app)
 - Or `claude --teammate-mode in-process` for single-window view
 
-### iTerm2 not using control mode
-The script auto-detects iTerm2. If it's not working, make sure `$TERM_PROGRAM` is set:
+### Agents "run in the background" / no visible panes (iTerm2)
+By default, `ct` uses regular tmux mode where agent panes are visible inside the tmux session. If you previously had control mode enabled (`tmux -CC`) and agents weren't appearing as visible panes, this is a known issue with iTerm2's tmux integration not picking up panes created by Claude's teammate mode.
+
+**Fix:** The default now uses regular tmux (which works reliably). Navigate between agent panes with `Ctrl+B` then arrow keys.
+
+If you want to try iTerm2 control mode (native tabs/splits), you can opt in:
 ```bash
-echo $TERM_PROGRAM  # Should output "iTerm.app"
+export CT_ITERM_CC=1
 ```
+Add this to your `~/.zshrc` before the Claude Agent Teams block. Note: control mode requires iTerm2's tmux integration settings to be configured correctly under **Preferences > General > tmux**.
 
 ### Cmd keyboard shortcuts don't work
 This is normal in tmux. Use Ctrl-based shortcuts instead:
 - `Ctrl+A` for start of line
 - `Ctrl+E` for end of line
-- Or use iTerm2 control mode (`tmux -CC`) for native keyboard support
+- Or enable iTerm2 control mode (`export CT_ITERM_CC=1`) for native keyboard support
 
 ### Agent teams not spawning
 Make sure the experimental flag is enabled:

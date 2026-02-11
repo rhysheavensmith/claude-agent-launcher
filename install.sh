@@ -11,17 +11,24 @@ NC='\033[0m' # No Color
 echo -e "${GREEN}Claude Agent Team Launcher - Installation${NC}"
 echo ""
 
-# Detect shell
-if [ -n "$ZSH_VERSION" ]; then
-    SHELL_CONFIG="$HOME/.zshrc"
-    SHELL_NAME="zsh"
-elif [ -n "$BASH_VERSION" ]; then
-    SHELL_CONFIG="$HOME/.bashrc"
-    SHELL_NAME="bash"
-else
-    echo -e "${RED}Unsupported shell. Please use zsh or bash.${NC}"
-    exit 1
-fi
+# Detect the user's login shell (not the shell running this script)
+# When run via 'curl ... | bash', $ZSH_VERSION/$BASH_VERSION reflect the
+# pipe shell (always bash), not the user's actual shell. Use $SHELL instead.
+case "$SHELL" in
+    */zsh)
+        SHELL_CONFIG="$HOME/.zshrc"
+        SHELL_NAME="zsh"
+        ;;
+    */bash)
+        SHELL_CONFIG="$HOME/.bashrc"
+        SHELL_NAME="bash"
+        ;;
+    *)
+        echo -e "${RED}Unsupported shell: $SHELL${NC}"
+        echo "Please use zsh or bash."
+        exit 1
+        ;;
+esac
 
 echo -e "Detected shell: ${GREEN}$SHELL_NAME${NC}"
 echo -e "Config file: ${GREEN}$SHELL_CONFIG${NC}"
